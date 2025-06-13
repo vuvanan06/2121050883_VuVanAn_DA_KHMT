@@ -1,4 +1,4 @@
-# Dự án Dự đoán Khách hàng Rời bỏ của công ty viễn thông
+# Dự án: Phân tích và xây dựng mô hình dự đoán Khách hàng Rời bỏ của công ty viễn thông
 
 ## Tổng quan
 Dự án này nhằm xây dựng một hệ thống dự đoán khả năng khách hàng rời bỏ (churn) của một công ty viễn thông bằng cách sử dụng các kỹ thuật học máy. Mục tiêu là phân tích dữ liệu khách hàng, xây dựng mô hình dự đoán và triển khai một ứng dụng web để cung cấp dự đoán dựa trên dữ liệu nhập tay hoặc tệp Excel. Mô hình chính được sử dụng là Hồi quy Logistic, với dữ liệu được chuẩn hóa bằng bộ StandardScaler đã được huấn luyện sẵn. Ngoài ra, dự án sử dụng Power BI để trực quan hóa dữ liệu và phân tích hành vi khách hàng, giúp công ty nhận diện khách hàng có nguy cơ rời bỏ và đưa ra các chiến lược giữ chân hiệu quả.
