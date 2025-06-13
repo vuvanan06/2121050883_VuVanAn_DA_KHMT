@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Dự đoán khách hàng rời bỏ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Dự đoán khách hàng rời bỏ</h1>
+
+        <!-- Form nhập tay -->
+        <h3>Nhập thông tin khách hàng</h3>
+        <form method="POST" enctype="multipart/form-data" id="predictionForm">
+            <!-- gender -->
+            <div class="form-group">
+                <label for="gender">Giới tính:</label>
+                <select name="gender" id="gender">
+                    <option value="" disabled selected>Chọn giới tính</option>
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
+                </select>
+            </div>
+
+            <!-- SeniorCitizen -->
+            <div class="form-group">
+                <label for="SeniorCitizen">Người cao tuổi:</label>
+                <select name="SeniorCitizen" id="SeniorCitizen">
+                    <option value="" disabled selected>Chọn</option>
+                    <option value="0">Không</option>
+                    <option value="1">Có</option>
+                </select>
+            </div>
+
+            <!-- Partner -->
+            <div class="form-group">
+                <label for="Partner">Có bạn đời:</label>
+                <select name="Partner" id="Partner">
+                    <option value="" disabled selected>Chọn</option>
+                    <option value="0">Không</option>
+                    <option value="1">Có</option>
+                </select>
+            </div>
+
+            <!-- Dependents -->
+            <div class="form-group">
+                <label for="Dependents">Có người phụ thuộc:</label>
+                <select name="Dependents" id="Dependents">
+                    <option value="" disabled selected>Chọn</option>
+                    <option value="0">Không</option>
+                    <option value="1">Có</option>
+                </select>
+            </div>
+
+            <!-- tenure -->
+            <div class="form-group">
+                <label for="tenure">Số tháng sử dụng dịch vụ:</label>
+                <input type="number" step="1" min="0" name="tenure" id="tenure">
+            </div>
+
+            <!-- PhoneService -->
+            <div class="form-group">
+                <label for="PhoneService">Dùng điện thoại cố định:</label>
+                <select name="PhoneService" id="PhoneService">
+                    <option value="" disabled selected>Chọn</option>
+                    <option value="0">Không</option>
+                    <option value="1">Có</option>
+                </select>
+            </div>
+
+            <!-- MultipleLines -->
+            <div class="form-group">
+                <label for="MultipleLines">Nhiều đường dây điện thoại:</label>
+                <select name="MultipleLines" id="MultipleLines">
+                    <option value="" disabled selected>Chọn</option>
+                    <option value="0">Không</option>
+                    <option value="1">Có</option>
+                </select>
+            </div>
+
+            <!-- InternetService -->
+            <div class="form-group">
+                <label for="InternetService">Loại kết nối Internet:</label>
+                <select name="InternetService" id="InternetService">
+                    <option value="" disabled selected>Chọn loại</option>
+                    <option value="0">Không</option>
+                    <option value="1">DSL</option>
+                    <option value="2">Fiber optic</option>
+                </select>
+            </div>
+
+            <!-- OnlineSecurity -->
+            <div class="form-group">
+                <label for="OnlineSecurity">Bảo mật trực tuyến:</label>
+                <select name="OnlineSecurity" id="OnlineSecurity">
+                    <option value="" disabled selected>Chọn</option>
+                    <option value="0">Không</option>
+                    <option value="1">Có</option>
+                </select>
+            </div>
+
+            <!-- OnlineBackup -->
+            <div class="form-group">
+                <label for="OnlineBackup">Sao lưu trực tuyến:</label>
+                <select name="OnlineBackup" id="OnlineBackup">
+                    <option value="" disabled selected>Chọn</option>
+                    <option value="0">Không</option>
+                    <option value="1">Có</option>
+                </select>
+            </div>
+
+            <!-- DeviceProtection -->
+            <div class="form-group">
+                <label for="DeviceProtection">Bảo vệ thiết bị:</label>
+                <select name="DeviceProtection" id="DeviceProtection">
+                    <option value="" disabled selected>Chọn</option>
+                    <option value="0">Không</option>
+                    <option value="1">Có</option>
+                </select>
+            </div>
+
+            <!-- TechSupport -->
+            <div class="form-group">
+                <label for="TechSupport">Hỗ trợ kỹ thuật:</label>
+                <select name="TechSupport" id="TechSupport">
+                    <option value="" disabled selected>Chọn</option>
+                    <option value="0">Không</option>
+                    <option value="1">Có</option>
+                </select>
+            </div>
+
+            <!-- StreamingTV -->
+            <div class="form-group">
+                <label for="StreamingTV">Xem TV trực tuyến:</label>
+                <select name="StreamingTV" id="StreamingTV">
+                    <option value="" disabled selected>Chọn</option>
+                    <option value="0">Không</option>
+                    <option value="1">Có</option>
+                </select>
+            </div>
+
+            <!-- StreamingMovies -->
+            <div class="form-group">
+                <label for="StreamingMovies">Xem phim trực tuyến:</label>
+                <select name="StreamingMovies" id="StreamingMovies">
+                    <option value="" disabled selected>Chọn</option>
+                    <option value="0">Không</option>
+                    <option value="1">Có</option>
+                </select>
+            </div>
+
+            <!-- Contract -->
+            <div class="form-group">
+                <label for="Contract">Loại hợp đồng:</label>
+                <select name="Contract" id="Contract">
+                    <option value="" disabled selected>Chọn loại</option>
+                    <option value="0">Theo tháng</option>
+                    <option value="1">Một năm</option>
+                    <option value="2">Hai năm</option>
+                </select>
+            </div>
+
+            <!-- PaperlessBilling -->
+            <div class="form-group">
+                <label for="PaperlessBilling">Hóa đơn điện tử:</label>
+                <select name="PaperlessBilling" id="PaperlessBilling">
+                    <option value="" disabled selected>Chọn</option>
+                    <option value="0">Không</option>
+                    <option value="1">Có</option>
+                </select>
+            </div>
+
+            <!-- PaymentMethod -->
+            <div class="form-group">
+                <label for="PaymentMethod">Phương thức thanh toán:</label>
+                <select name="PaymentMethod" id="PaymentMethod">
+                    <option value="" disabled selected>Chọn phương thức</option>
+                    <option value="0">Electronic check</option>
+                    <option value="1">Mailed check</option>
+                    <option value="2">Bank transfer</option>
+                    <option value="3">Credit card</option>
+                </select>
+            </div>
+
+            <!-- MonthlyCharges -->
+            <div class="form-group">
+                <label for="MonthlyCharges">Chi phí hàng tháng:</label>
+                <input type="number" step="0.01" min="0" name="MonthlyCharges" id="MonthlyCharges">
+            </div>
+
+            <!-- TotalCharges -->
+            <div class="form-group">
+                <label for="TotalCharges">Tổng chi phí đã trả:</label>
+                <input type="number" step="0.01" min="0" name="TotalCharges" id="TotalCharges">
+            </div>
+
+            <h3>Hoặc tải lên file Excel</h3>
+            <div class="form-group">
+                <label for="excel_file">Tải file Excel (.xlsx hoặc .xls):</label>
+                <input type="file" name="excel_file" id="excel_file" accept=".xlsx,.xls">
+            </div>
+            <button type="submit">Dự đoán</button>
+        </form>
+
+        <!-- Hiển thị lỗi nếu có -->
+        {% if error %}
+        <div class="error">
+            <h3>Lỗi: {{ error }}</h3>
+        </div>
+        {% endif %}
+
+        <!-- Hiển thị kết quả từ form nhập tay -->
+        {% if prediction %}
+        <div class="result">
+            <h2>Kết quả dự đoán: {{ prediction }}</h2>
+            <h3>Thông số đã nhập:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Thông số</th>
+                        <th>Giá trị</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for col in cols %}
+                    <tr>
+                        <td>{{ col }}</td>
+                        <td>{{ input_values[col] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        <!-- Hiển thị kết quả từ file Excel -->
+        {% if excel_results %}
+        <div class="result">
+            <h2>Kết quả dự đoán từ file Excel</h2>
+            <table>
+                <thead>
+                    <tr>
+                        {% for col in cols %}
+                        <th>{{ col }}</th>
+                        {% endfor %}
+                        <th>Prediction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in excel_results %}
+                    <tr>
+                        {% for col in cols %}
+                        <td>{{ row[col] }}</td>
+                        {% endfor %}
+                        <td>{{ row['Prediction'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        document.getElementById('predictionForm').addEventListener('submit', function(event) {
+            const excelFile = document.getElementById('excel_file').files[0];
+            const formInputs = document.querySelectorAll('input[type="number"], select:not(#excel_file)');
+            let formFilled = false;
+
+            // Kiểm tra xem form có được điền không
+            formInputs.forEach(input => {
+                if (input.value !== '') {
+                    formFilled = true;
+                }
+            });
+
+            // Nếu có file Excel, bỏ qua kiểm tra form
+            if (excelFile) {
+                return; // Cho phép gửi form
+            }
+
+            // Nếu không có file Excel, kiểm tra xem form có được điền đầy đủ không
+            if (!formFilled) {
+                event.preventDefault();
+                alert('Vui lòng điền đầy đủ thông tin trong form hoặc tải lên file Excel.');
+            } else {
+                let allFilled = true;
+                formInputs.forEach(input => {
+                    if (input.value === '') {
+                        allFilled = false;
+                    }
+                });
+                if (!allFilled) {
+                    event.preventDefault();
+                    alert('Vui lòng điền đầy đủ tất cả các trường trong form.');
+                }
+            }
+        });
+
+        // Khi chọn file Excel, bỏ yêu cầu điền form
+        document.getElementById('excel_file').addEventListener('change', function() {
+            const formInputs = document.querySelectorAll('input[type="number"], select:not(#excel_file)');
+            if (this.files.length > 0) {
+                formInputs.forEach(input => {
+                    input.removeAttribute('required');
+                });
+            } else {
+                formInputs.forEach(input => {
+                    input.setAttribute('required', 'required');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
